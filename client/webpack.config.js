@@ -18,12 +18,27 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({ template: "./index.html"}),
+      new WebpackPwaManifest({
+        name: "Progressive Text Editor",
+        short_name: "PTE",
+        description: "text editor",
+        background_color: "#fff",
+        theme_color: "#333333",
+        
+      }),
+      new InjectManifest({
+        swSrc: path.resolve(__dirname, "src-sw.js"),
+        swDest: "src-sw.js"
+      })
     ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"]
+        }
       ],
     },
   };
