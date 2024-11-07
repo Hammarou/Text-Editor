@@ -16,19 +16,32 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath: '/',
+      clean: true,
+      assetModuleFilename: 'images/[name][ext]'
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: "./index.html"}),
+      new HtmlWebpackPlugin({
+         template: "./index.html",
+         filename: "index.html"
+        }),
       new WebpackPwaManifest({
         name: "Progressive Text Editor",
         short_name: "PTE",
         description: "text editor",
         background_color: "#fff",
         theme_color: "#333333",
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            filename: "logo-[width]x[height].png"
+          }
+        ]
         
       }),
       new InjectManifest({
-        swSrc: path.resolve(__dirname, "src-sw.js"),
+        swSrc: "./src-sw.js",
         swDest: "src-sw.js"
       })
     ],
@@ -38,6 +51,13 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"]
+        },
+        {
+          test: /\.(png|jpe?g|gif|svg)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name][ext]'
+          },
         }
       ],
     },

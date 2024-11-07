@@ -27,14 +27,15 @@ export default class {
     getDb()
       .then((data) => {
       console.info("Loaded data from IndexedDB, injecting into editor", data);
-      let currentData = data[data.length - 1] ? data[data.length - 1].content : data
-      this.editor.setValue(currentData || localData || header);
+      //let currentData = data[data.length - 1] ? data[data.length - 1].content : data
+      //this.editor.setValue(currentData || localData || header);
+      this.editor.setValue(data.content || localData || header);
     });
 
     this.editor.on("change", () => {
       putDb(this.editor.getValue());
       console.log("getDB", this.editor.getValue())
-      localStorage.setItem("content", this.editor.getValue());
+      //localStorage.setItem("content", this.editor.getValue());
     });
 
     // Save the content of the editor when the editor itself is loses focus
