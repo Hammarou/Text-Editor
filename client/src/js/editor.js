@@ -4,7 +4,11 @@ import { header } from "./header";
 
 export default class {
   constructor() {
-    const localData = localStorage.getItem("content");
+    let localData;
+    if (localData) {
+       localData = localStorage.setItem("content", header);
+    }
+    
 
     // check if CodeMirror is loaded
     if (typeof CodeMirror === "undefined") {
@@ -29,7 +33,11 @@ export default class {
       console.info("Loaded data from IndexedDB, injecting into editor", data);
       //let currentData = data[data.length - 1] ? data[data.length - 1].content : data
       //this.editor.setValue(currentData || localData || header);
-      this.editor.setValue(data.content || localData || header);
+      let content;
+      if (data.content) {
+        content = data.content
+      }
+      this.editor.setValue(content || localData || header);
     });
 
     this.editor.on("change", () => {
