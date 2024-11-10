@@ -6,10 +6,9 @@
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Directory Structure](#directory-structure)
 - [Application Screenshots](#application-screenshots)
-- [GitHub Deployment Location (HTTPS)](#github-deployment-location-https)
-<!-- - [GitHub Repository Location](#github-repository-location) -->
+- [GitHub Repository Location (HTTPS)](#github-repository-location)
+- [Render Deployment Location (HTTPS)](#render-deployment-location-https)
 - [Credits](#credits)
 - [Contributions](#contributions)
 - [License](#license)
@@ -53,9 +52,14 @@ To run this application locally, follow these steps:
 ## Usage
 
 
-## GitHub Repository Location
+## GitHub Repository Location (HTTPS)
 
 https://github.com/Hammarou/Text-Editor
+
+
+# Render Deployment Location (HTTPS) 
+
+https://text-editor-9pxj.onrender.com
 
 
 ## Credits

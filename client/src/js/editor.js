@@ -31,8 +31,7 @@ export default class {
     getDb()
       .then((data) => {
       console.info("Loaded data from IndexedDB, injecting into editor", data);
-      //let currentData = data[data.length - 1] ? data[data.length - 1].content : data
-      //this.editor.setValue(currentData || localData || header);
+      
       let content;
       if (data.content) {
         content = data.content
@@ -43,13 +42,13 @@ export default class {
     this.editor.on("change", () => {
       putDb(this.editor.getValue());
       console.log("getDB", this.editor.getValue())
-      //localStorage.setItem("content", this.editor.getValue());
+      
     });
 
     // Save the content of the editor when the editor itself is loses focus
     this.editor.on("blur", () => {
       console.log("The editor has lost focus");
-     // putDb(localStorage.getItem("content"));
+     
       putDb(this.editor.getValue());
     });
   }
