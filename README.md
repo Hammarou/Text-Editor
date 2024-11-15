@@ -41,7 +41,7 @@ To run this application locally, follow these steps:
 
 2. Navigate to the application directory:
    ```sh
-   cd your/chosen/directory/path
+   cd text_editor
    ```
 
 3. Install the dependencies:
