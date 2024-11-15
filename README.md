@@ -46,10 +46,23 @@ To run this application locally, follow these steps:
 
 3. Install the dependencies:
    ```sh
-   npm install
+   npm run install:prod
    ```
 
 ## Usage
+
+To start the application, use the command: 
+
+```sh 
+npm start
+```
+
+1. Type the JavaScript code into the editor. Code will save into the indexeDB database automatically.
+
+# Application Screenshots
+
+![screenshot1](/client/assets/images/screentshot1.png)
+![screenshot2](/client/assets/images/screenshot2.png)
 
 
 ## GitHub Repository Location (HTTPS)
